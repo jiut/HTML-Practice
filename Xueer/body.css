@@ -1,0 +1,207 @@
+body {
+        margin: 0;
+}
+
+.center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: max-content;
+}
+
+.header {
+        background-color: #FFF;
+        top: 0;
+        height: 5rem;
+        z-index: 9;
+        border-bottom: #EEEEEE solid 3px;
+}
+
+.content {
+        margin: 0 auto;
+        width: 70%;
+        display: flex;
+}
+
+.link {
+        margin-left: 5%;
+        text-align: center;
+        position: relative;
+}
+
+.link.selected {
+        border-top: #F44336 solid 5px;
+        color: #F44336;
+        margin-bottom: 5px;
+}
+
+.showbox {
+        background-color: #FFF;
+        height: 330px;
+        margin-bottom: 10px;
+        border-bottom: #EEEEEE solid 3px;
+        padding: 5% 10%;
+}
+
+.class {
+        width: 25%;
+}
+
+.class-catogery {
+        height: 40%;
+        position: relative;
+}
+
+.border {
+        width: 120px;
+        height: 120px;
+        border: #28C397 solid 3px;
+        border-radius: 50%;
+        color: #28C397;
+}
+
+.border span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+}
+
+ul {
+        border-right: #ECECEC solid 1px;
+        margin: 20% 7.5% 0;
+}
+
+li {
+        margin-bottom: 7%;
+}
+
+li.selected {
+        color: #F4483B;
+}
+
+li.selected span {
+        color: #F4483B;
+}
+
+li span {
+        color: #9A9A9A;
+        font-size: 0.8rem;
+}
+
+.class-icon {
+        position: relative;
+        margin-top: 5%;
+}
+
+.class-icon img {
+        width: 21px;
+        margin: 0 auto;
+        position: absolute;
+        right: 0;
+        left: 0;
+}
+
+
+form button {
+        top: 0;
+        right: 0;
+        background: #F44336;
+        border-radius: 0 5px 5px 0;
+        height: 100%;
+        width: 70px;
+        cursor: pointer;
+        position: absolute;
+        border: none;
+        outline: none;
+}
+
+form button:before {
+        content: "\f002";
+        font-family: FontAwesome;
+        font-size: 25px;
+        color: #F9F0DA;
+}
+
+.caption {
+        height: 20%;
+        font-size: 1.5rem;
+        text-align: center;
+}
+
+.caption span {
+        font-size: 1rem;
+        color: #33C69B;
+}
+
+.green {
+        border: #1DC091 solid 3px;
+        font-size: 1.4em;
+}
+
+.green.selected {
+        background-color: #1DC091;
+        color: #FFF;
+}
+
+.red {
+        font-size: 4rem;
+        color: red;
+        text-decoration: underline red;
+        font-weight: 100;
+}
+
+.list {
+        display: flex;
+        width: 100%;
+        height: 62%;
+        justify-content: center;
+        align-items: center;
+}
+
+.list-item {
+        background-color: #F77B72;
+        width: 20%;
+        height: 114px;
+        margin: 0 2%;
+        position: relative;
+}
+
+.list-item.selected {
+        background-color: #F44336;
+}
+
+.list-item.selected::before {
+        background: url(./批注\ 2019-10-29\ 074715.png) no-repeat;
+        content: '';
+        position: absolute;
+        height: 40px;
+        width: 79px;
+        background-size: contain;
+        top: -40px;
+        left: 50%;
+        transform: translate(-50%, 0);
+}
+
+.list-name {
+        color: #FFF;
+        font-size: 1.8rem;
+        text-align: center;
+}
+
+.list-name span {
+        font-size: 1rem;
+}
+
+.footer {
+        height: 6rem;
+        background-color: #333333;
+        position: relative;
+}
+
+.footer span {
+        color: #9A9A9A;
+        letter-spacing: 0.3rem;
+}
