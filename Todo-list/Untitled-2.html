@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="todo-list">
+        <input v-model="temp" @keyup.enter="add()">
+        <button v-on:click="add()">+</button>
+        <button @click="ac">一键完成</button>
+        <button @click="clean">清空</button>
+
+        <li v-for=" thing in inbox " :key="thing.name">{{ thing.name }}
+            <input type="checkbox" v-on:change.stop="complete(thing)">
+            <button @click="mod(thing)">修改</button>
+            <div v-if="thing.modify">
+                <input type="text" v-model="thing.name">
+                <button @click="end_mod(thing)">保存</button>
+            </div>
+            <button v-on:click="del_in(thing)">删除</button>
+        </li>
+        <span>{{in_sum}}</span>
+
+        <hr>
+        <li v-for=" thing in done ":key="thing.name">{{ thing.name }}
+            <input checked type="checkbox" v-on:change.stop="undo(thing)">
+            <button @click="mod(thing)">修改</button>
+            <div v-if="thing.modify">
+                <input type="text" v-model="thing.name">
+                <button @click="end_mod(thing)">保存</button>
+            </div>
+            <button v-on:click="del_do(thing)">删除</button>
+        </li>
+        <span>{{do_sum}}</span>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#todo-list',
+            data: {
+                temp: '',
+                inbox: [
+                    {
+                        name: '2333',
+                        modify: false
+                    },
+                    {
+                        name: '6666',
+                        modify: false
+                    }
+                ],
+
+                done: [
+                    {
+                        name: 'df',
+                        modify: false
+                    },
+                    {
+                        name: 'nice',
+                        modify: false
+                    }
+                ]
+            },
+
+            computed: {
+                in_sum: function () {
+                    return this.inbox.length;
+                },
+
+                do_sum: function () {
+                    return this.done.length;
+                }
+            },
+
+            methods: {
+                add: function () {
+                    this.inbox.push({
+                        name: this.temp,
+                        modify: false
+                    });
+
+                    this.temp = '';
+                },
+
+                ac: function () {
+                    this.done = this.done.concat( this.inbox);
+                    this.inbox = [];
+                },
+
+                clean: function() {
+                    this.inbox = [];
+                    this.done = [];
+                },
+
+                complete: function (thing) {
+                    this.done.push(thing);
+                    this.inbox.splice(this.inbox.indexOf(thing), 1);
+                },
+
+                undo: function (thing) {
+                    this.inbox.push(thing);
+                    this.done.splice(this.done.indexOf(thing), 1);
+                },
+
+                mod: function (thing) {
+                    thing.modify = true ;
+                },
+
+                end_mod: function (thing) {
+                    thing.modify = false ;
+                },
+
+                del_in: function (thing) {
+                    this.inbox.splice(this.inbox.indexOf(thing), 1);
+                },
+
+                del_do: function (thing) {
+                    this.done.splice(this.done.indexOf(thing), 1);
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
